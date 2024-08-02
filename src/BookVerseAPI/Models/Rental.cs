@@ -5,11 +5,18 @@ namespace BookVerseAPI.Models;
 public class Rental
 {
     [Key]
-    public long Id { get; set; }
-    public long UsuarioId { get; set; }
-    public long LivroId { get; set; }
-    public DateTime DataAluguel { get; set; }
+    public Guid Id { get; set; }
 
-    public User Usuario { get; set; }
-    public Book Livro { get; set; }
+    [Required]
+    public Guid UserId { get; set; }
+
+    [Required]
+    public Guid BookId { get; set; }
+
+    public User User { get; set; }
+
+    public Book Book { get; set; }
+
+    [Required]
+    public DateTime RentalDate { get; set; } = DateTime.Now;
 }

@@ -2,7 +2,7 @@
 
 namespace BookVerseAPI.Interfaces;
 
-public interface IUser
+public interface IUserRepository
 {
     Task<IEnumerable<User>> GetAllUsersAsync();
     Task<User> GetUserByIdAsync(Guid id);

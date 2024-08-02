@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookVerseAPI.Repositories;
 
-public class UserRepository : IUser
+public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _context;
 

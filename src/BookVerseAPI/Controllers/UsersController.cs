@@ -1,5 +1,5 @@
-﻿using BookVerseAPI.Models;
-using BookVerseAPI.Repositories;
+﻿using BookVerseAPI.Interfaces;
+using BookVerseAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookVerseAPI.Controllers;
@@ -7,9 +7,9 @@ namespace BookVerseAPI.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
-    private readonly UserRepository _userRepository;
+    private readonly IUserRepository _userRepository;
 
-    public UsersController(UserRepository userRepository)
+    public UsersController(IUserRepository userRepository)
     {
         _userRepository = userRepository;
     }

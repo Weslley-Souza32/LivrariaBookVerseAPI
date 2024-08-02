@@ -1,4 +1,6 @@
 using BookVerseAPI.Data;
+using BookVerseAPI.Interfaces;
+using BookVerseAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(option =>
         option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Injeção de Dependência
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IRentalRepository, RentalRepository>();
 
 var app = builder.Build();
 
